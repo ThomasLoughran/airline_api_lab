@@ -37,4 +37,8 @@ public class FlightService {
         return flight;
     }
 
+    public void cancelFlightById(long id){
+        flightRepository.deleteById(id);
+    }
+
 }

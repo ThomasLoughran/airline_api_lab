@@ -51,8 +51,9 @@ public class FlightController {
 
     // Cancel flight
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity cancelFlight(){
-        return null;
+    public ResponseEntity cancelFlight(@PathVariable long id){
+        flightService.cancelFlightById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }
