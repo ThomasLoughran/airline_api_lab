@@ -1,6 +1,7 @@
 package com.example.airline_api.services;
 
 import com.example.airline_api.models.Flight;
+import com.example.airline_api.models.FlightDTO;
 import com.example.airline_api.repositories.FlightRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,11 @@ public class FlightService {
         return flights;
     }
 
-
+    public Flight createFlight(FlightDTO flightDTO){
+        Flight flight = new Flight(flightDTO.getDestination(), flightDTO.getCapacity(), flightDTO.getDepartureDate(), flightDTO.getDepartureTime());
+//        add method in to add passengers with this flight
+        flightRepository.save(flight);
+        return flight;
+    }
 
 }
