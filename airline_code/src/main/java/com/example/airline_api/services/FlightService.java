@@ -19,6 +19,17 @@ public class FlightService {
         return flights;
     }
 
+    public Flight getFlightById(long id){
+        Flight flight;
+        if(flightRepository.findById(id).isPresent()){
+            flight = flightRepository.findById(id).get();
+        }
+        else {
+            flight = null;
+        }
+        return flight;
+    }
+
     public Flight createFlight(FlightDTO flightDTO){
         Flight flight = new Flight(flightDTO.getDestination(), flightDTO.getCapacity(), flightDTO.getDepartureDate(), flightDTO.getDepartureTime());
 //        add method in to add passengers with this flight
