@@ -3,6 +3,7 @@ package com.example.airline_api.models;
 import jakarta.persistence.Column;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FlightDTO {
 
@@ -14,11 +15,14 @@ public class FlightDTO {
 
     private String departureTime;
 
-    public FlightDTO(String destination, int capacity, String departureDate, String departureTime) {
+    private List<Long> passengerIds;
+
+    public FlightDTO(String destination, int capacity, String departureDate, String departureTime, List<Long> passengerIds) {
         this.destination = destination;
         this.capacity = capacity;
         this.departureDate = departureDate;
         this.departureTime = departureTime;
+        this.passengerIds = passengerIds;
     }
 
     public FlightDTO() {
@@ -54,5 +58,13 @@ public class FlightDTO {
 
     public void setDepartureTime(String departureTime) {
         this.departureTime = departureTime;
+    }
+
+    public List<Long> getPassengerIds() {
+        return passengerIds;
+    }
+
+    public void setPassengerIds(List<Long> passengerIds) {
+        this.passengerIds = passengerIds;
     }
 }

@@ -26,7 +26,7 @@ public class Passenger {
             joinColumns = @JoinColumn(name = "passenger_id"),
             inverseJoinColumns = @JoinColumn(name = "flight_id")
     )
-    @JsonIgnoreProperties({"flights"})
+    @JsonIgnoreProperties({"passengers"})
 
     private List<Flight> flights;
 
@@ -69,5 +69,9 @@ public class Passenger {
 
     public void setFlights(List<Flight> flights) {
         this.flights = flights;
+    }
+
+    public void addFlight(Flight flight){
+        flights.add(flight);
     }
 }
