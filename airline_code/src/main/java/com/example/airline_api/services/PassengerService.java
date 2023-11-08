@@ -19,6 +19,16 @@ public class PassengerService {
         return passengers;
     }
 
+    public Passenger getPassengerById(long id){
+        Passenger passenger;
+        if (passengerRepository.findById(id).isPresent()){
+            passenger = passengerRepository.findById(id).get();
+        } else {
+            passenger = null;
+        }
+        return passenger;
+    }
+
     public Passenger addNewPassenger(PassengerDTO passengerDTO){
         Passenger passenger = new Passenger(passengerDTO.getName(), passengerDTO.getEmail());
         passengerRepository.save(passenger);
