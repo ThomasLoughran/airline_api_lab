@@ -26,6 +26,15 @@ public class DataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         Flight londonFlight = new Flight("London", 100, "15/08/2024", "12:30");
         flightRepository.save(londonFlight);
+
+        Passenger zsolt = new Passenger("Zsolt", "Zsolt@gmail.com");
+        londonFlight.addPassenger(zsolt);
+        passengerRepository.save(zsolt);
+
+        Passenger colin = new Passenger("Colin", "colin@gmail.com");
+        londonFlight.addPassenger(colin);
+        passengerRepository.save(colin);
+
     }
 
 }
